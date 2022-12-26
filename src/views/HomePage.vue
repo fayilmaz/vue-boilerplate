@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <div>Home Page</div>
+  <div>
+    <div class="h1">Home Page</div>
   </div>
 </template>
 
@@ -11,6 +11,7 @@ export default {
   components: {},
   setup() {
     const store = useStore();
+
     return { store };
   },
 };
