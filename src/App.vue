@@ -1,8 +1,10 @@
 <template>
   <div :data-theme="theme" class="mainPage">
-    <nav class="link p-10">
-      <router-link class="link" to="/">Home</router-link>
+    <nav class="link p-10 flex justify-center">
+      <router-link class="link m-3" to="/">All Components</router-link>
+      <router-link class="link m-3" to="/buttons">Buttons</router-link>
     </nav>
+    <div class="text-2xl">{{ currentPathTitle }}</div>
     <router-view />
     <div class="fixed top-10 right-10 border-2">
       <h3 class="h3 m-2">Switch Theme</h3>
@@ -26,12 +28,15 @@
 <script>
 import { ref, computed } from "vue";
 import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 
 export default {
   name: "App",
+  components: {},
   setup() {
     const store = useStore();
     const theme = computed(() => store.state.theme);
+    const currentPathTitle = computed(() => getCurrentPathTitle());
     const selectedTheme = ref("dark");
     const themeOptions = [
       "light",
@@ -68,8 +73,24 @@ export default {
     const handleSwitchTheme = (e) => {
       store.commit("switchTheme", e.target.value);
     };
+    const router = useRouter();
 
-    return { theme, selectedTheme, themeOptions, handleSwitchTheme };
+    const getCurrentPathTitle = () => {
+      const currentPathOptions = router.options.routes.find(
+        (r) => r.path === router.currentRoute.value.fullPath
+      );
+
+      return currentPathOptions?.title;
+    };
+
+    return {
+      theme,
+      selectedTheme,
+      themeOptions,
+      handleSwitchTheme,
+      getCurrentPathTitle,
+      currentPathTitle,
+    };
   },
 };
 </script>

@@ -1,11 +1,21 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomePage from "../views/HomePage.vue";
+import AllComponentsView from "../views/AllComponentsView.vue";
+import ButtonsView from "../views/ButtonsView.vue";
 
 const routes = [
   {
     path: "/",
     name: "home",
-    component: HomePage,
+    title: "All Components View",
+    component: AllComponentsView,
+    props: true,
+  },
+  {
+    path: "/buttons",
+    name: "buttons",
+    title: "Buttons View",
+    component: ButtonsView,
+    props: true,
   },
 ];
 
