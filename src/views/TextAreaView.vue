@@ -6,7 +6,7 @@
         <TextArea placeholder="disabled" :disabled="true" />
         <TextArea
           placeholder="custom class"
-          customClass="border-4 border-white text-yellow-300 "
+          customClass="border-4 border-white text-yellow-300"
         />
       </div>
       <div class="component-section form-control">

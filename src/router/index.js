@@ -3,6 +3,7 @@ import AllComponentsView from "../views/AllComponentsView.vue";
 import ButtonsView from "../views/ButtonsView.vue";
 import TextInputView from "../views/TextInputView";
 import TextAreaView from "../views/TextAreaView";
+import CheckboxView from "../views/CheckboxView";
 
 const routes = [
   {
@@ -31,6 +32,13 @@ const routes = [
     name: "text-areas",
     title: "Text Area",
     component: TextAreaView,
+    props: true,
+  },
+  {
+    path: "/checkboxes",
+    name: "checkboxes",
+    title: "Checkbox",
+    component: CheckboxView,
     props: true,
   },
 ];

@@ -5,6 +5,7 @@
       <router-link class="link m-3" to="/buttons">Button</router-link>
       <router-link class="link m-3" to="/text-inputs">Text Input</router-link>
       <router-link class="link m-3" to="/text-areas">Text Area</router-link>
+      <router-link class="link m-3" to="/checkboxes">Checkbox</router-link>
     </nav>
     <div class="text-2xl">{{ currentPathTitle }}</div>
     <router-view />

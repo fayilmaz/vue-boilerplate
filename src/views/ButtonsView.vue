@@ -10,7 +10,7 @@
           <Button
             text="custom class"
             :active="true"
-            customClass="border-4 border-white text-red-500 "
+            customClass="border-4 border-white text-red-500"
           />
         </div>
         <div class="component-section">

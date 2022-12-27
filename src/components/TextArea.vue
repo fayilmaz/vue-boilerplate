@@ -17,9 +17,9 @@
     ></textarea>
     <label v-if="labelPosition === 'bottom'" class="label">
       <span v-if="label.top" class="label-text w-[9rem]">{{ label.top }}</span>
-      <span v-if="label.alt" class="label-text-alt w-[8rem]">{{
-        label.alt
-      }}</span>
+      <span v-if="label.alt" class="label-text-alt w-[8rem]">
+        {{ label.alt }}
+      </span>
     </label>
   </span>
 
