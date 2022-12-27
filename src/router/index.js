@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import AllComponentsView from "../views/AllComponentsView.vue";
 import ButtonsView from "../views/ButtonsView.vue";
+import TextInputView from "../views/TextInputView";
 
 const routes = [
   {
@@ -15,6 +16,13 @@ const routes = [
     name: "buttons",
     title: "Buttons View",
     component: ButtonsView,
+    props: true,
+  },
+  {
+    path: "/text-inputs",
+    name: "text-inputs",
+    title: "Text Inputs View",
+    component: TextInputView,
     props: true,
   },
 ];

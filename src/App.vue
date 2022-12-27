@@ -3,6 +3,7 @@
     <nav class="link p-10 flex justify-center">
       <router-link class="link m-3" to="/">All Components</router-link>
       <router-link class="link m-3" to="/buttons">Buttons</router-link>
+      <router-link class="link m-3" to="/text-inputs">Text Inputs</router-link>
     </nav>
     <div class="text-2xl">{{ currentPathTitle }}</div>
     <router-view />
