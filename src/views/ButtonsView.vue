@@ -8,7 +8,7 @@
           <Button text="normal" />
           <Button text="active" :active="true" />
           <Button
-            text="Custom Class"
+            text="custom class"
             :active="true"
             customClass="border-4 border-white text-red-500 "
           />

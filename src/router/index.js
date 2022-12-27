@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import AllComponentsView from "../views/AllComponentsView.vue";
 import ButtonsView from "../views/ButtonsView.vue";
 import TextInputView from "../views/TextInputView";
+import TextAreaView from "../views/TextAreaView";
 
 const routes = [
   {
@@ -14,15 +15,22 @@ const routes = [
   {
     path: "/buttons",
     name: "buttons",
-    title: "Buttons View",
+    title: "Button",
     component: ButtonsView,
     props: true,
   },
   {
     path: "/text-inputs",
     name: "text-inputs",
-    title: "Text Inputs View",
+    title: "Text Input",
     component: TextInputView,
+    props: true,
+  },
+  {
+    path: "/text-areas",
+    name: "text-areas",
+    title: "Text Area",
+    component: TextAreaView,
     props: true,
   },
 ];

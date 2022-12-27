@@ -3,11 +3,14 @@
     :class="[...classes]"
     :disabled="disabled"
     :placeholder="placeholder"
+    :required="required"
+    v-model="value"
+    type="text"
   />
 </template>
 
 <script>
-import { computed } from "@vue/runtime-core";
+import { computed, ref } from "@vue/runtime-core";
 export default {
   name: "TextInput",
   props: {
@@ -16,6 +19,10 @@ export default {
       type: Boolean,
     },
     disabled: {
+      default: false,
+      type: Boolean,
+    },
+    required: {
       default: false,
       type: Boolean,
     },
@@ -59,7 +66,8 @@ export default {
     ];
 
     const classes = computed(() => textInputComponentClasses);
-    return { textInputComponentClasses, classes };
+    const value = ref("");
+    return { textInputComponentClasses, classes, value };
   },
 };
 </script>

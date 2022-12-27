@@ -5,7 +5,7 @@
       <div class="component-section">
         <TextInput placeholder="disabled" :disabled="true" />
         <TextInput
-          placeholder="Custom Class"
+          placeholder="custom class"
           customClass="border-4 border-white text-yellow-300 "
         />
       </div>

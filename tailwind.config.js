@@ -4,6 +4,8 @@ module.exports = {
   theme: {
     extend: {},
   },
+  mode: "jit",
+  purge: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   daisyui: {
     themes: [
       "light",
