@@ -8,6 +8,7 @@ import LinkView from "../views/LinkView";
 import RadioView from "../views/RadioView";
 import SelectView from "../views/SelectView";
 import ToggleView from "../views/ToggleView";
+import ModalView from "../views/ModalView";
 
 const routes = [
   {
@@ -71,6 +72,13 @@ const routes = [
     name: "toggles",
     title: "Toggles",
     component: ToggleView,
+    props: true,
+  },
+  {
+    path: "/modals",
+    name: "modals",
+    title: "Modals",
+    component: ModalView,
     props: true,
   },
 ];

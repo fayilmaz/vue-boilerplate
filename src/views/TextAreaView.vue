@@ -13,7 +13,7 @@
         <TextArea
           :label="{ top: 'top label', alt: 'alt label' }"
           labelPosition="top"
-          placeholder="xsmall"
+          placeholder="labeled"
           size="xs"
         />
       </div>
