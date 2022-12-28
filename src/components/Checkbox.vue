@@ -10,7 +10,7 @@
         :required="required"
         :value="value"
         :id="id"
-        v-model="staticChecked"
+        v-model="isChecked"
       />
     </label>
     <input
@@ -22,7 +22,7 @@
       :required="required"
       :value="value"
       :id="id"
-      v-model="staticChecked"
+      v-model="isChecked"
     />
   </span>
   <span v-else>
@@ -33,7 +33,7 @@
         :class="[...classes]"
         :disabled="disabled"
         :required="required"
-        :value="value"
+        :value="value ? value : label ? label : ''"
         :id="id"
         v-model="isChecked"
       />
@@ -44,7 +44,7 @@
       :class="[...classes]"
       :disabled="disabled"
       :required="required"
-      :value="value"
+      :value="value ? value : label ? label : ''"
       :id="id"
       v-model="isChecked"
     />
@@ -112,13 +112,11 @@ export default {
     ];
 
     const classes = computed(() => checkboxInputComponentClasses);
-    const staticChecked = ref(true);
-    const isChecked = ref(false);
+    const isChecked = ref(props.checked ? true : false);
 
     return {
       classes,
       isChecked,
-      staticChecked,
     };
   },
 };

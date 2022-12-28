@@ -1,5 +1,37 @@
 <template>
+  <span
+    v-if="
+      label &&
+      label !== {} &&
+      (label.message || label.topRight || label.bottomLeft || label.bottomRight)
+    "
+    class="form-control w-full max-w-xs ml-0"
+  >
+    <label v-if="label.message || label.topRight" class="label">
+      <span v-if="label.message" class="label-text">{{ label.message }}</span>
+      <span v-if="label.topRight" class="label-text-alt">
+        {{ label.topRight }}
+      </span>
+    </label>
+    <input
+      :class="[...classes]"
+      :disabled="disabled"
+      :placeholder="placeholder"
+      :required="required"
+      v-model="value"
+      type="text"
+    />
+    <label v-if="label.bottomLeft || label.bottomRight" class="label">
+      <span v-if="label.bottomLeft" class="label-text-alt">
+        {{ label.bottomLeft }}
+      </span>
+      <span v-if="label.bottomRight" class="label-text-alt">
+        {{ label.bottomRight }}
+      </span>
+    </label>
+  </span>
   <input
+    v-else
     :class="[...classes]"
     :disabled="disabled"
     :placeholder="placeholder"
@@ -35,14 +67,14 @@ export default {
       type: String,
     },
     label: {
-      default: "",
-      type: String,
+      default: () => {},
+      type: Object,
     },
     customClass: {
       default: "",
       type: String,
     },
-    placeHolder: {
+    placeholder: {
       default: "",
       type: String,
     },
@@ -67,7 +99,7 @@ export default {
 
     const classes = computed(() => textInputComponentClasses);
     const value = ref("");
-    return { textInputComponentClasses, classes, value };
+    return { classes, value };
   },
 };
 </script>

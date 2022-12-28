@@ -6,6 +6,7 @@
     <CheckboxView />
     <LinkView />
     <RadioView />
+    <SelectView />
   </div>
 </template>
 
@@ -17,6 +18,7 @@ import TextAreaView from "./TextAreaView.vue";
 import CheckboxView from "./CheckboxView.vue";
 import LinkView from "./LinkView.vue";
 import RadioView from "./RadioView.vue";
+import SelectView from "./SelectView.vue";
 export default {
   name: "AllComponentsView",
   components: {
@@ -26,6 +28,7 @@ export default {
     CheckboxView,
     LinkView,
     RadioView,
+    SelectView,
   },
   setup() {
     const store = useStore();

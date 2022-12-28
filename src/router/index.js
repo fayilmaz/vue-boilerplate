@@ -6,6 +6,7 @@ import TextAreaView from "../views/TextAreaView";
 import CheckboxView from "../views/CheckboxView";
 import LinkView from "../views/LinkView";
 import RadioView from "../views/RadioView";
+import SelectView from "../views/SelectView";
 
 const routes = [
   {
@@ -53,8 +54,15 @@ const routes = [
   {
     path: "/radios",
     name: "radios",
-    title: "Radiop",
+    title: "Radio",
     component: RadioView,
+    props: true,
+  },
+  {
+    path: "/selects",
+    name: "selects",
+    title: "Select",
+    component: SelectView,
     props: true,
   },
 ];

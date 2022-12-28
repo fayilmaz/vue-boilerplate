@@ -6,15 +6,19 @@
   display: block;
   margin: 10px 10px;
 }
-.component-section button {
+.component-section > button,
+input,
+textarea,
+a,
+select {
   margin: 0px 5px;
 }
-.component-section input {
-  margin: 0px 5px;
+.component-section > select {
+  margin: 10px 5px;
 }
-.component-section textarea {
-  margin: 0px 5px;
+.component-section .form-control {
+  margin: 10px auto;
 }
-.component-section a {
-  margin: 0px 5px;
+.view-section {
+  margin: 0px 10px;
 }

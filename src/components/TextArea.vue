@@ -45,11 +45,11 @@ export default {
       type: Boolean,
     },
     disabled: {
-      default: () => false,
+      default: false,
       type: Boolean,
     },
     required: {
-      default: () => false,
+      default: false,
       type: Boolean,
     },
     color: {
@@ -86,16 +86,16 @@ export default {
       default: "",
       type: String,
     },
-    placeHolder: {
-      default: () => "",
+    placeholder: {
+      default: "",
       type: String,
     },
     rows: {
-      default: () => "0",
+      default: "0",
       type: String,
     },
     cols: {
-      default: () => "0",
+      default: "0",
       type: String,
     },
   },

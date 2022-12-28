@@ -9,9 +9,9 @@
         :disabled="disabled"
         checked="checked"
         :required="required"
-        :value="value"
+        :value="value ? value : label"
         :id="id"
-        v-model="staticChecked"
+        v-model="isChecked"
       />
     </label>
     <input
@@ -22,9 +22,9 @@
       :disabled="disabled"
       checked="checked"
       :required="required"
-      :value="value"
+      :value="value ? value : id ? id : ''"
       :id="id"
-      v-model="staticChecked"
+      v-model="isChecked"
     />
   </span>
   <span v-else>
@@ -36,7 +36,7 @@
         :name="name"
         :disabled="disabled"
         :required="required"
-        :value="value"
+        :value="value ? value : label"
         :id="id"
         v-model="isChecked"
       />
@@ -48,7 +48,7 @@
       :name="name"
       :disabled="disabled"
       :required="required"
-      :value="value"
+      :value="value ? value : id ? id : ''"
       :id="id"
       v-model="isChecked"
     />
@@ -120,13 +120,11 @@ export default {
     ];
 
     const classes = computed(() => radioComponentClasses);
-    const staticChecked = ref(true);
-    const isChecked = ref(false);
+    const isChecked = ref(props.checked ? true : false);
 
     return {
       classes,
       isChecked,
-      staticChecked,
     };
   },
 };

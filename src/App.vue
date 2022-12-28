@@ -8,6 +8,7 @@
       <router-link class="link m-3" to="/checkboxes">Checkbox</router-link>
       <router-link class="link m-3" to="/links">Link</router-link>
       <router-link class="link m-3" to="/radios">Radio</router-link>
+      <router-link class="link m-3" to="/selects">Select</router-link>
     </nav>
     <div class="text-2xl">{{ currentPathTitle }}</div>
     <router-view />

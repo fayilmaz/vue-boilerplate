@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center">
+  <div class="flex justify-center view-section">
     <div class="border-2 w-100 mt-5">
       <h3 class="text-xl mt-3">Text Inputs</h3>
       <div class="component-section">
@@ -7,6 +7,17 @@
         <TextInput
           placeholder="custom class"
           customClass="border-4 border-white text-yellow-300"
+        />
+      </div>
+      <div class="component-section">
+        <TextInput
+          placeholder="labeled"
+          :label="{
+            message: 'label message',
+            topRight: 'alt message',
+            bottomLeft: 'alt message',
+            bottomRight: 'alt message',
+          }"
         />
       </div>
       <div class="component-section">
