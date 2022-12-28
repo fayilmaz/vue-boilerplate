@@ -3,8 +3,9 @@
     <label v-if="label" class="label cursor-pointer">
       <span class="label-text">{{ label }}</span>
       <input
-        type="checkbox"
+        type="radio"
         :class="[...classes]"
+        :name="name"
         :disabled="disabled"
         checked="checked"
         :required="required"
@@ -15,8 +16,9 @@
     </label>
     <input
       v-else
-      type="checkbox"
+      type="radio"
       :class="[...classes]"
+      :name="name"
       :disabled="disabled"
       checked="checked"
       :required="required"
@@ -29,8 +31,9 @@
     <label v-if="label" class="label cursor-pointer">
       <span class="label-text">{{ label }}</span>
       <input
-        type="checkbox"
+        type="radio"
         :class="[...classes]"
+        :name="name"
         :disabled="disabled"
         :required="required"
         :value="value"
@@ -40,8 +43,9 @@
     </label>
     <input
       v-else
-      type="checkbox"
+      type="radio"
       :class="[...classes]"
+      :name="name"
       :disabled="disabled"
       :required="required"
       :value="value"
@@ -52,9 +56,9 @@
 </template>
 
 <script>
-import { computed, ref } from "@vue/runtime-core";
+import { computed, ref } from "vue";
 export default {
-  name: "CheckboxComponent",
+  name: "RadioComponent",
   props: {
     disabled: {
       default: false,
@@ -69,7 +73,7 @@ export default {
       type: String,
     },
     size: {
-      default: "checkbox-md",
+      default: "radio-md",
       type: String,
     },
     label: {
@@ -88,30 +92,34 @@ export default {
       default: false,
       type: Boolean,
     },
+    name: {
+      default: "radio",
+      type: String,
+    },
     id: {
       type: String,
       default: "",
     },
   },
   setup(props) {
-    const checkboxInputComponentClasses = [
+    const radioComponentClasses = [
       props.customClass ? props.customClass : "",
-      "checkbox",
+      "radio",
       props.disabled ? "" : "",
-      props.color === "primary" ? "checkbox-primary" : "",
-      props.color === "secondary" ? "checkbox-secondary" : "",
-      props.color === "accent" ? "checkbox-accent" : "",
-      props.color === "info" ? "checkbox-info" : "",
-      props.color === "success" ? "checkbox-success" : "",
-      props.color === "warning" ? "checkbox-warning" : "",
-      props.color === "error" ? "checkbox-error" : "",
-      props.size === "xs" ? "checkbox-xs" : "",
-      props.size === "sm" ? "checkbox-sm" : "",
-      props.size === "md" ? "checkbox-md" : "",
-      props.size === "lg" ? "checkbox-lg" : "",
+      props.color === "primary" ? "radio-primary" : "",
+      props.color === "secondary" ? "radio-secondary" : "",
+      props.color === "accent" ? "radio-accent" : "",
+      props.color === "info" ? "radio-info" : "",
+      props.color === "success" ? "radio-success" : "",
+      props.color === "warning" ? "radio-warning" : "",
+      props.color === "error" ? "radio-error" : "",
+      props.size === "xs" ? "radio-xs" : "",
+      props.size === "sm" ? "radio-sm" : "",
+      props.size === "md" ? "radio-md" : "",
+      props.size === "lg" ? "radio-lg" : "",
     ];
 
-    const classes = computed(() => checkboxInputComponentClasses);
+    const classes = computed(() => radioComponentClasses);
     const staticChecked = ref(true);
     const isChecked = ref(false);
 

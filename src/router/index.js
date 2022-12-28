@@ -5,6 +5,7 @@ import TextInputView from "../views/TextInputView";
 import TextAreaView from "../views/TextAreaView";
 import CheckboxView from "../views/CheckboxView";
 import LinkView from "../views/LinkView";
+import RadioView from "../views/RadioView";
 
 const routes = [
   {
@@ -47,6 +48,13 @@ const routes = [
     name: "links",
     title: "Link",
     component: LinkView,
+    props: true,
+  },
+  {
+    path: "/radios",
+    name: "radios",
+    title: "Radiop",
+    component: RadioView,
     props: true,
   },
 ];

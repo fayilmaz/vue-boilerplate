@@ -1,5 +1,5 @@
 <template>
-  <div :data-theme="theme" class="mainPage">
+  <div :data-theme="theme" class="mainPage h-full">
     <nav class="link p-10 flex justify-center">
       <router-link class="link m-3" to="/">All Components</router-link>
       <router-link class="link m-3" to="/buttons">Button</router-link>
@@ -7,6 +7,7 @@
       <router-link class="link m-3" to="/text-areas">Text Area</router-link>
       <router-link class="link m-3" to="/checkboxes">Checkbox</router-link>
       <router-link class="link m-3" to="/links">Link</router-link>
+      <router-link class="link m-3" to="/radios">Radio</router-link>
     </nav>
     <div class="text-2xl">{{ currentPathTitle }}</div>
     <router-view />
