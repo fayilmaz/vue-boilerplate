@@ -7,6 +7,7 @@ import CheckboxView from "../views/CheckboxView";
 import LinkView from "../views/LinkView";
 import RadioView from "../views/RadioView";
 import SelectView from "../views/SelectView";
+import ToggleView from "../views/ToggleView";
 
 const routes = [
   {
@@ -63,6 +64,13 @@ const routes = [
     name: "selects",
     title: "Select",
     component: SelectView,
+    props: true,
+  },
+  {
+    path: "/toggles",
+    name: "toggles",
+    title: "Toggles",
+    component: ToggleView,
     props: true,
   },
 ];
