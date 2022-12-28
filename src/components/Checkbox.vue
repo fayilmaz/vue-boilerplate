@@ -92,7 +92,7 @@ export default {
     },
   },
   setup(props) {
-    const textInputComponentClasses = [
+    const checkboxInputComponentClasses = [
       props.customClass ? props.customClass : "",
       "checkbox",
       props.disabled ? "" : "",
@@ -109,12 +109,11 @@ export default {
       props.size === "lg" ? "checkbox-lg" : "",
     ];
 
-    const classes = computed(() => textInputComponentClasses);
+    const classes = computed(() => checkboxInputComponentClasses);
     const staticChecked = ref(true);
     const isChecked = ref(false);
 
     return {
-      textInputComponentClasses,
       classes,
       isChecked,
       staticChecked,

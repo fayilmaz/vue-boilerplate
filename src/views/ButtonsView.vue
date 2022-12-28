@@ -4,9 +4,9 @@
       <h3 class="text-xl mt-3">Buttons</h3>
       <div class="component-section">
         <div class="component-section">
-          <Button text="disabled" :disabled="true" />
+          <Button text="disabled" disabled />
           <Button text="normal" />
-          <Button text="active" :active="true" />
+          <Button text="active" active />
           <Button
             text="custom class"
             :active="true"
@@ -33,13 +33,13 @@
           <Button text="warning" color="warning" />
         </div>
         <div class="component-section">
-          <Button text="info" color="info" :outline="true" />
-          <Button text="success" color="success" :outline="true" />
-          <Button text="error" color="error" :outline="true" />
-          <Button text="warning" color="warning" :outline="true" />
+          <Button text="info" color="info" outline />
+          <Button text="success" color="success" outline />
+          <Button text="error" color="error" outline />
+          <Button text="warning" color="warning" outline />
         </div>
         <div class="component-section">
-          <Button text="loading" :loading="true" />
+          <Button text="loading" loading />
         </div>
       </div>
       <div class="component-section">

@@ -3,7 +3,7 @@
     <div class="border-2 w-100 mt-5">
       <h3 class="text-xl mt-3">Text Inputs</h3>
       <div class="component-section">
-        <TextInput placeholder="disabled" :disabled="true" />
+        <TextInput placeholder="disabled" disabled />
         <TextInput
           placeholder="custom class"
           customClass="border-4 border-white text-yellow-300"

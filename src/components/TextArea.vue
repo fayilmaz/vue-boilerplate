@@ -100,7 +100,7 @@ export default {
     },
   },
   setup(props) {
-    const textInputComponentClasses = [
+    const textAreaComponentClasses = [
       props.customClass ? props.customClass : "",
       "textarea",
       props.disabled ? "" : "",
@@ -116,8 +116,8 @@ export default {
     ];
 
     const value = ref("");
-    const classes = computed(() => textInputComponentClasses);
-    return { textInputComponentClasses, classes, value };
+    const classes = computed(() => textAreaComponentClasses);
+    return { classes, value };
   },
 };
 </script>
