@@ -8,6 +8,7 @@
     <RadioView />
     <SelectView />
     <ToggleView />
+    <FormView />
     <ModalView />
   </div>
 </template>
@@ -23,6 +24,7 @@ import RadioView from "./RadioView.vue";
 import SelectView from "./SelectView.vue";
 import ToggleView from "./ToggleView.vue";
 import ModalView from "./ModalView.vue";
+import FormView from "./FormView.vue";
 export default {
   name: "AllComponentsView",
   components: {
@@ -35,6 +37,7 @@ export default {
     SelectView,
     ToggleView,
     ModalView,
+    FormView,
   },
   setup() {
     const store = useStore();

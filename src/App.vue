@@ -11,6 +11,7 @@
       <router-link class="link m-3" to="/selects">Select</router-link>
       <router-link class="link m-3" to="/toggles">Toggle</router-link>
       <router-link class="link m-3" to="/modals">Modal</router-link>
+      <router-link class="link m-3" to="/form">Form</router-link>
     </nav>
     <div class="text-2xl">{{ currentPathTitle }}</div>
     <router-view />

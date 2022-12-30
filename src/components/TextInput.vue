@@ -1,3 +1,86 @@
+<script setup>
+import { computed, defineProps } from "@vue/runtime-core";
+import { toRef } from "vue";
+import { useField } from "vee-validate";
+import ErrorDisplay from "./ErrorDisplay.vue";
+
+const name = toRef(props, "name");
+
+const props = defineProps({
+  bordered: {
+    default: true,
+    type: Boolean,
+  },
+  disabled: {
+    default: false,
+    type: Boolean,
+  },
+  required: {
+    default: false,
+    type: Boolean,
+  },
+  color: {
+    default: "",
+    type: String,
+  },
+  size: {
+    default: "",
+    type: String,
+  },
+  label: {
+    default: () => {},
+    type: Object,
+  },
+  customClass: {
+    default: "",
+    type: String,
+  },
+  placeholder: {
+    default: "",
+    type: String,
+  },
+  inputType: {
+    default: "text",
+    type: String,
+  },
+  value: {
+    default: "",
+    type: String,
+  },
+  name: {
+    default: "",
+    type: String,
+  },
+});
+
+const textInputComponentClasses = [
+  props.customClass ? props.customClass : "",
+  "input",
+  props.disabled ? "" : "",
+  props.bordered ? "input-bordered" : "",
+  props.color === "primary" ? "input-primary" : "",
+  props.color === "secondary" ? "input-secondary" : "",
+  props.color === "accent" ? "input-accent" : "",
+  props.color === "info" ? "input-info" : "",
+  props.color === "success" ? "input-success" : "",
+  props.color === "warning" ? "input-warning" : "",
+  props.color === "error" ? "input-error" : "",
+  props.size === "xs" ? "input-xs" : "",
+  props.size === "sm" ? "input-sm" : "",
+  props.size === "lg" ? "input-lg" : "",
+];
+const classes = computed(() => textInputComponentClasses);
+
+const {
+  value: inputValue,
+  errorMessage,
+  handleChange,
+} = useField(name, undefined, {
+  validateOnValueUpdate: false,
+  validateOnMount: false,
+});
+</script>
+
 <template>
   <span
     v-if="
@@ -14,12 +97,15 @@
       </span>
     </label>
     <input
-      :class="[...classes]"
+      :class="classes"
+      :name="name"
+      :id="name"
+      :value="inputValue"
       :disabled="disabled"
       :placeholder="placeholder"
+      @change="handleChange"
       :required="required"
-      v-model="value"
-      type="text"
+      :type="inputType"
     />
     <label v-if="label.bottomLeft || label.bottomRight" class="label">
       <span v-if="label.bottomLeft" class="label-text-alt">
@@ -29,79 +115,20 @@
         {{ label.bottomRight }}
       </span>
     </label>
+    <ErrorDisplay v-show="errorMessage" :error="errorMessage" />
   </span>
-  <input
-    v-else
-    :class="[...classes]"
-    :disabled="disabled"
-    :placeholder="placeholder"
-    :required="required"
-    v-model="value"
-    type="text"
-  />
+  <span v-else>
+    <input
+      :class="classes"
+      :name="name"
+      :id="name"
+      :value="inputValue"
+      :disabled="disabled"
+      :placeholder="placeholder"
+      @change="handleChange"
+      :required="required"
+      :type="inputType"
+    />
+    <ErrorDisplay v-show="errorMessage" :error="errorMessage" />
+  </span>
 </template>
-
-<script>
-import { computed, ref } from "@vue/runtime-core";
-export default {
-  name: "TextInput",
-  props: {
-    bordered: {
-      default: true,
-      type: Boolean,
-    },
-    disabled: {
-      default: false,
-      type: Boolean,
-    },
-    required: {
-      default: false,
-      type: Boolean,
-    },
-    color: {
-      default: "",
-      type: String,
-    },
-    size: {
-      default: "",
-      type: String,
-    },
-    label: {
-      default: () => {},
-      type: Object,
-    },
-    customClass: {
-      default: "",
-      type: String,
-    },
-    placeholder: {
-      default: "",
-      type: String,
-    },
-  },
-  setup(props) {
-    const textInputComponentClasses = [
-      props.customClass ? props.customClass : "",
-      "input",
-      props.disabled ? "" : "",
-      props.bordered ? "input-bordered" : "",
-      props.color === "primary" ? "input-primary" : "",
-      props.color === "secondary" ? "input-secondary" : "",
-      props.color === "accent" ? "input-accent" : "",
-      props.color === "info" ? "input-info" : "",
-      props.color === "success" ? "input-success" : "",
-      props.color === "warning" ? "input-warning" : "",
-      props.color === "error" ? "input-error" : "",
-      props.size === "xs" ? "input-xs" : "",
-      props.size === "sm" ? "input-sm" : "",
-      props.size === "lg" ? "input-lg" : "",
-    ];
-
-    const classes = computed(() => textInputComponentClasses);
-    const value = ref("");
-    return { classes, value };
-  },
-};
-</script>
-
-<style></style>

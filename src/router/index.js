@@ -9,6 +9,7 @@ import RadioView from "../views/RadioView";
 import SelectView from "../views/SelectView";
 import ToggleView from "../views/ToggleView";
 import ModalView from "../views/ModalView";
+import FormView from "../views/FormView";
 
 const routes = [
   {
@@ -79,6 +80,13 @@ const routes = [
     name: "modals",
     title: "Modals",
     component: ModalView,
+    props: true,
+  },
+  {
+    path: "/form",
+    name: "form",
+    title: "Form",
+    component: FormView,
     props: true,
   },
 ];
