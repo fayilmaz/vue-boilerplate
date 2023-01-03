@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import i18n from "./i18next";
 import "./index.css";
 
 import Axios from "axios";
@@ -32,4 +33,4 @@ Axios.interceptors.response.use(
   }
 );
 
-createApp(App).use(store).use(router).mount("#app");
+i18n(createApp(App)).use(store).use(router).mount("#app");

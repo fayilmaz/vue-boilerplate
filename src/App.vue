@@ -1,35 +1,70 @@
 <template>
   <div :data-theme="theme" class="mainPage h-full">
     <nav class="link p-10 flex justify-center">
-      <router-link class="link m-3" to="/">All Components</router-link>
-      <router-link class="link m-3" to="/buttons">Button</router-link>
-      <router-link class="link m-3" to="/text-inputs">Text Input</router-link>
-      <router-link class="link m-3" to="/text-areas">Text Area</router-link>
-      <router-link class="link m-3" to="/checkboxes">Checkbox</router-link>
-      <router-link class="link m-3" to="/links">Link</router-link>
-      <router-link class="link m-3" to="/radios">Radio</router-link>
-      <router-link class="link m-3" to="/selects">Select</router-link>
-      <router-link class="link m-3" to="/toggles">Toggle</router-link>
-      <router-link class="link m-3" to="/modals">Modal</router-link>
-      <router-link class="link m-3" to="/form">Form</router-link>
+      <router-link class="link m-3" to="/">{{
+        $t("menu_all_components")
+      }}</router-link>
+      <router-link class="link m-3" to="/buttons">{{
+        $t("menu_button")
+      }}</router-link>
+      <router-link class="link m-3" to="/text-inputs">{{
+        $t("menu_text_input")
+      }}</router-link>
+      <router-link class="link m-3" to="/text-areas">{{
+        $t("menu_text_area")
+      }}</router-link>
+      <router-link class="link m-3" to="/checkboxes">{{
+        $t("menu_checkbox")
+      }}</router-link>
+      <router-link class="link m-3" to="/links">{{
+        $t("menu_link")
+      }}</router-link>
+      <router-link class="link m-3" to="/radios">{{
+        $t("menu_radio")
+      }}</router-link>
+      <router-link class="link m-3" to="/selects">{{
+        $t("menu_select")
+      }}</router-link>
+      <router-link class="link m-3" to="/toggles">{{
+        $t("menu_toggle")
+      }}</router-link>
+      <router-link class="link m-3" to="/modals">{{
+        $t("menu_modal")
+      }}</router-link>
+      <router-link class="link m-3" to="/form">{{
+        $t("menu_form")
+      }}</router-link>
     </nav>
-    <div class="text-2xl">{{ currentPathTitle }}</div>
     <router-view />
     <div class="fixed top-10 right-10 border-2">
-      <h3 class="h3 m-2">Switch Theme</h3>
-      <select
-        class="m-4"
-        @change.prevent="handleSwitchTheme"
-        v-model="selectedTheme"
-      >
-        <option
-          v-for="(theme, index) in themeOptions"
-          :value="theme"
-          :key="index"
+      <form>
+        <h3 class="h3 m-2">{{ $t("switch_language") }}</h3>
+        <select
+          class="m-4"
+          @change.prevent="handleChangeLanguage"
+          v-model="selectedLang"
         >
-          {{ theme }}
-        </option>
-      </select>
+          <option v-for="(lang, index) in langs" :value="lang.key" :key="index">
+            {{ lang.name }}
+          </option>
+        </select>
+      </form>
+      <form>
+        <h3 class="h3 m-2">{{ $t("switch_theme") }}</h3>
+        <select
+          class="m-4"
+          @change.prevent="handleSwitchTheme"
+          v-model="selectedTheme"
+        >
+          <option
+            v-for="(theme, index) in themeOptions"
+            :value="theme"
+            :key="index"
+          >
+            {{ theme }}
+          </option>
+        </select>
+      </form>
     </div>
   </div>
 </template>
@@ -37,7 +72,7 @@
 <script>
 import { ref, computed } from "vue";
 import { useStore } from "vuex";
-import { useRouter } from "vue-router";
+import i18next from "i18next";
 
 export default {
   name: "App",
@@ -45,8 +80,8 @@ export default {
   setup() {
     const store = useStore();
     const theme = computed(() => store.state.theme);
-    const currentPathTitle = computed(() => getCurrentPathTitle());
     const selectedTheme = ref("dark");
+    const selectedLang = ref("en");
     const themeOptions = [
       "light",
       "dark",
@@ -79,26 +114,27 @@ export default {
       "winter",
     ];
 
+    const langs = [
+      { name: "English", key: "en" },
+      { name: "Türkçe", key: "tr" },
+    ];
+
     const handleSwitchTheme = (e) => {
       store.commit("switchTheme", e.target.value);
     };
-    const router = useRouter();
 
-    const getCurrentPathTitle = () => {
-      const currentPathOptions = router.options.routes.find(
-        (r) => r.path === router.currentRoute.value.fullPath
-      );
-
-      return currentPathOptions?.title;
+    const handleChangeLanguage = (e) => {
+      i18next.changeLanguage(e.target.value);
     };
 
     return {
       theme,
       selectedTheme,
+      selectedLang,
       themeOptions,
       handleSwitchTheme,
-      getCurrentPathTitle,
-      currentPathTitle,
+      handleChangeLanguage,
+      langs,
     };
   },
 };
@@ -113,5 +149,9 @@ export default {
 }
 .mainPage {
   height: 100vh;
+}
+
+.router-link-active {
+  font-weight: 700;
 }
 </style>

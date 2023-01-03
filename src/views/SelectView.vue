@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center view-section">
     <div class="border-2 w-100 mt-5">
-      <h3 class="text-xl mt-3">Selects</h3>
+      <h3 class="text-xl mt-3">{{ $t("view_select_title") }}</h3>
       <div class="component-section">
         <div class="component-section">
           <Select disabled :options="options" placeholder="disabled" />

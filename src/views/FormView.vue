@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center view-section">
     <div class="border-2 w-100 mt-5">
-      <h3 class="text-xl mt-3">Sign Up Form</h3>
+      <h3 class="text-xl mt-3">{{ $t("view_form_title") }}</h3>
       <div class="component-section">
         <div class="component-section">
           <Form
@@ -12,43 +12,44 @@
             <TextInput
               customClass="block mb-2"
               inputType="text"
-              placeholder="name"
+              :placeholder="$t('name')"
               name="name"
               :value="values.name"
             />
             <TextInput
               customClass="block mb-2"
               inputType="text"
-              placeholder="surname"
+              :placeholder="$t('surname')"
               name="surname"
               :value="values.surname"
             />
             <TextInput
               customClass="block mb-2"
               inputType="email"
-              placeholder="email"
+              :placeholder="$t('email')"
               name="email"
               :value="values.email"
             />
             <TextInput
               customClass="block mb-2"
               inputType="password"
-              placeholder="password"
+              :placeholder="$t('password')"
               name="password"
               :value="values.password"
             />
             <TextInput
               customClass="block mb-2"
               inputType="password"
-              placeholder="confirm password"
+              :placeholder="$t('confirm_password')"
               name="passwordConfirmation"
               :value="values.passwordConfirmation"
             />
-            <input text="submit" type="submit" class="btn mt5" />
+            <input :value="$t('submit')" type="submit" class="btn mt5" />
           </Form>
           <Modal
-            title="Sign Up"
-            content="You have successfully signed up!"
+            title="$t('sign_up')"
+            content="You have successfully signed
+          up!"
             closeButtonText="Close"
             modalId="form-modal"
             closeMethod="button"
